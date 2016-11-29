@@ -12,7 +12,8 @@ Vue.lazyimg ={
         options = options || {
             fadein: false,
             speed: 20,
-            nohori: false
+            nohori: false,
+            default: '',
         }
         //custom scrollEnd event
         if(options.speed){
@@ -131,6 +132,9 @@ Vue.lazyimg ={
                     this.el.style.opacity = 1
                 this.el.removeEventListener('load',onloadEnd)
             }.bind(this)
+            if(this.options.default){
+              this.el.src = this.options.default;
+            }
             this.el.addEventListener('load',onload)
         }
         Vue.directive('lazyload',update)
