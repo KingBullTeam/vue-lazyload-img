@@ -84,7 +84,7 @@ Vue.lazyimg ={
             var isFadeIn = this.modifiers.fadein || options.fadein
             var isNoHori = this.modifiers.nohori || options.nohori
             if(isFadeIn){
-                this.el.style.opacity = 0
+                this.el.style.opacity = 1
                 this.el.style.transition = 'opacity .3s'
                 this.el.style.webkitTransition = 'opacity .3s'
             }
@@ -132,8 +132,8 @@ Vue.lazyimg ={
                     this.el.style.opacity = 1
                 this.el.removeEventListener('load',onloadEnd)
             }.bind(this)
-            if(this.options.default){
-              this.el.src = this.options.default;
+            if(options.default){
+              this.el.src = options.default;
             }
             this.el.addEventListener('load',onload)
         }
